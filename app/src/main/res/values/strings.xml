@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CricScore</string>
+    <string name="heading1">Score Your Runs</string>
+    <string name="heading2">\@CricScore</string>
+    <string name="start_score">Click To Start Scoring</string>
+    <string name="footer">Built by: Rishikesh Neupane</string>
+
 </resources>
