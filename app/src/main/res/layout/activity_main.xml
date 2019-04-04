@@ -10,19 +10,19 @@
     tools:context=".MainActivity">
 
 
-
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="@color/colorPrimaryDark"
+        android:orientation="vertical"
         tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/heading1"
             android:layout_width="match_parent"
             android:layout_height="72dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="@string/heading1"
             android:textColor="@color/colorPrimary"
@@ -36,10 +36,10 @@
             android:id="@+id/appName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:gravity="center"
+            android:padding="10dp"
             android:text="@string/heading2"
             android:textColor="@color/colorPrimary"
             android:textSize="36sp"
@@ -52,38 +52,39 @@
     </LinearLayout>
 
 
-
     <Button
         android:id="@+id/startBtn"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="392dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/start_score"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="8dp"
         android:background="@color/colorPrimary"
-        tools:layout_editor_absoluteY="528dp"
+        android:text="@string/start_score"
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/footer"
         android:layout_width="match_parent"
-        android:layout_height="28dp"
+        android:layout_height="64dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/footer"
-        android:gravity="center"
-        android:textColor="@color/colorPrimary"
         android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="@string/footer"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startBtn"
-        app:layout_constraintVertical_bias="0.928" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
