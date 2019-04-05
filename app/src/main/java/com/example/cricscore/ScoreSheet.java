@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ScoreSheet extends AppCompatActivity {
@@ -18,6 +19,9 @@ public class ScoreSheet extends AppCompatActivity {
     int tOvers, tPlayers;
     int balls1 = 0;
     int balls2 = 0;
+    LinearLayout scoreCardA, scoreCardB;
+    TextView finalResult;
+
 
 
 
@@ -36,6 +40,11 @@ public class ScoreSheet extends AppCompatActivity {
         team1.setText(teamOne);
         team2.setText(teamTwo);
         displayForTeamA(scoreA, wicketA, balls1);
+
+        scoreCardA = (LinearLayout) findViewById(R.id.score_team_a);
+        scoreCardB = (LinearLayout) findViewById(R.id.score_team_b);
+        scoreCardB.setVisibility(LinearLayout.GONE);
+        finalResult = (TextView) findViewById(R.id.result);
 
     }
 
@@ -153,6 +162,8 @@ public class ScoreSheet extends AppCompatActivity {
     }
 
     public void displayForTeamASummary(int scoreA, int wicketA) {
+        scoreCardA.setVisibility(LinearLayout.GONE);
+        scoreCardB.setVisibility(LinearLayout.VISIBLE);
         int target = scoreA + 1;
         TextView scoreView = findViewById(R.id.scoreForA);
         scoreView.setText(String.valueOf("Innings Ended: " + scoreA + "/" + wicketA + "\n " + "Target for " +teamTwo+": " + target));
@@ -269,6 +280,9 @@ public class ScoreSheet extends AppCompatActivity {
     }
 
     public void displayForTeamBSummary(int scoreB, int wicketB) {
+        result();
+
+        scoreCardB.setVisibility(LinearLayout.GONE);
         TextView scoreView = findViewById(R.id.scoreForB);
         scoreView.setText(String.valueOf("Innings Ended : " + scoreB + "/" + wicketB));
     }
@@ -279,37 +293,66 @@ public class ScoreSheet extends AppCompatActivity {
         startActivity(myIntent);
     }
 
-    public void result(View view) {
-        char ch;
+    public void result() {
+        String ch;
         if (scoreA > scoreB) {
-            ch = 'A';
+            ch = teamOne;
             displayResult(ch);
         } else if (scoreB > scoreA) {
-            ch = 'B';
+            ch = teamTwo;
             displayResult(ch);
         } else {
-            ch = 'T';
+            ch = "T";
             displayResult(ch);
         }
     }
 
-    public void displayResult(char ch) {
-        TextView scoreView1 = findViewById(R.id.scoreForA);
-        TextView scoreView2 = findViewById(R.id.scoreForB);
-        if (ch == 'A' || ch == 'B') {
-            scoreView1.setText(String.valueOf("Team " + ch + " won the game!"));
-            scoreView2.setText(String.valueOf("Team " + ch + " won the game!"));
+    public void displayResult(String ch) {
+
+        if (ch == teamOne || ch == teamTwo) {
+            finalResult.setText(String.valueOf(ch + " won the game!"));
+
         } else {
-            scoreView1.setText(String.valueOf("The game was a Tie! Well Played!"));
-            scoreView2.setText(String.valueOf("The game was a Tie! Well Played!"));
+            finalResult.setText(String.valueOf("The game was a Tie! Well Played!"));
+
         }
 
     }
 
+    public void removeRunToA(View view) {
+        scoreA -= 1;
 
+        displayForTeamA(scoreA, wicketA, balls1);
+    }
 
+    public void removeDotToA(View view) {
 
+        balls1 -=1;
+        displayForTeamA(scoreA, wicketA, balls1);
+    }
 
+    public void remove1WicketA(View view) {
+
+        wicketA -=1;
+        displayForTeamA(scoreA, wicketA, balls1);
+    }
+    public void removeRunToB(View view) {
+        scoreB -= 1;
+
+        displayForTeamB(scoreB, wicketB, balls2);
+    }
+
+    public void removeDotToB(View view) {
+        balls2 -= 1;
+
+        displayForTeamB(scoreB, wicketB, balls2);
+    }
+
+    public void remove1WicketB(View view) {
+        wicketB -= 1;
+
+        displayForTeamB(scoreB, wicketB, balls2);
+    }
 }
 
 

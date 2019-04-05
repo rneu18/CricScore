@@ -62,7 +62,7 @@ public class EnterPlayer extends AppCompatActivity {
                 EditText player = (EditText) findViewById(R.id.players_X);
                 Boolean checkPlayer = validatePlayerEntry();
                 if(checkPlayer == true){
-                      //  myDB.clearTables();
+                       myDB.clearTables();
                     for(int k= 0; k<totalPlayer; k++){
                         String player_team1 = ((EditText) recyclerView1.getLayoutManager().findViewByPosition(k).findViewById(R.id.players_X)).getText().toString();
                         String player_team2 = ((EditText) recyclerView2.getLayoutManager().findViewByPosition(k).findViewById(R.id.players_X)).getText().toString();

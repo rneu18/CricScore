@@ -12,7 +12,6 @@
         android:orientation="vertical"
         android:scaleType="center">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +40,17 @@
                 android:textColor="@android:color/black"
                 android:textSize="30sp" />
 
+
             <LinearLayout
+                android:id="@+id/score_team_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+            <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -212,6 +221,52 @@
                     android:textColor="@android:color/black" />
 
             </LinearLayout>
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:scaleType="center">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+
+                        android:background="@android:color/white"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="removeRunToA"
+                        android:text="Remove Run"
+
+                        android:textColor="@android:color/black" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+
+                        android:background="@android:color/white"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="removeDotToA"
+                        android:text="Remove ball"
+
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/white"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="remove1WicketA"
+                        android:text="Reset Wicket" />
+
+
+                </LinearLayout>
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -243,6 +298,11 @@
                 android:text="0/0"
                 android:textColor="@android:color/black"
                 android:textSize="30sp" />
+            <LinearLayout
+                android:id="@+id/score_team_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -365,6 +425,7 @@
 
             </LinearLayout>
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -394,9 +455,71 @@
                     android:onClick="add1WicketB"
                     android:text="wicket" />
 
+
+            </LinearLayout>
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:scaleType="center">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+
+                        android:background="@android:color/white"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="removeRunToB"
+                        android:text="Remove Run"
+
+                        android:textColor="@android:color/black" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+
+                        android:background="@android:color/white"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="removeDotToB"
+                        android:text="Remove ball"
+
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/white"
+                        android:fontFamily="sans-serif-black"
+                        android:onClick="remove1WicketB"
+                        android:text="Reset Wicket" />
+
+
+                </LinearLayout>
             </LinearLayout>
 
 
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="30sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
 

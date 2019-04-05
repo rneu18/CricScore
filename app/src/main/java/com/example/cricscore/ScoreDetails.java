@@ -13,7 +13,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class ScoreDetails extends AppCompatActivity {
 
@@ -24,13 +27,31 @@ public class ScoreDetails extends AppCompatActivity {
     Button matchDetails1;
     int tOvers;
     int tPlayers;
-    int wickets;
-    int totalRuns;
-    int overs;
-    TextView battingTeam;
-    TextView currentScore;
-    TextView oversDone;
+    int wickets1;
+    int wickets2;
+    int totalRuns1;
+    int totalRuns2;
+    int over_1;
+    int over_2;
+    TextView battingTeam1;
+    TextView currentScore1;
+    TextView oversDone1;
+    TextView battingTeam2;
+    TextView currentScore2;
+    TextView oversDone2;
+    TextView target;
+    TextView fTeam1;
+    TextView fTeam2;
     DataBaseHelper myDB;
+    LinearLayout batting1, batting2, fielding1, fielding2;
+    ArrayList<String> players = new ArrayList<>();
+    public RecyclerView recyclerViewBatting1;
+    public RecyclerView.Adapter mAdapterBatting11;
+    public RecyclerView.LayoutManager layoutManagerBatting1;
+
+   // inputbarlayout = (LinearLayout) findViewById(R.id.input_layout);
+  //   inputbarlayout.setVisibility(LinearLayout.GONE);
+    // searchbarlayout.setVisibility(LinearLayout.VISIBLE);
 
 
 
@@ -43,10 +64,23 @@ public class ScoreDetails extends AppCompatActivity {
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.team_details);
 
-        battingTeam = (TextView) findViewById(R.id.battingTeam);
-        currentScore= (TextView) findViewById(R.id.currentScore);
-        oversDone = (TextView) findViewById(R.id.oversDone);
+        battingTeam1 = (TextView) findViewById(R.id.battingTeam1);
+        currentScore1= (TextView) findViewById(R.id.currentScore1);
+        oversDone1 = (TextView) findViewById(R.id.oversDone1);
+        fTeam1 = (TextView) findViewById(R.id.team_1);
+        fTeam2 = (TextView) findViewById(R.id.team_2);
+
+        fielding1 = (LinearLayout) findViewById(R.id.linear_fielding1);
+        fielding2 = (LinearLayout) findViewById(R.id.linear_fielding2);
+        fielding1.setVisibility(LinearLayout.GONE);
+        fielding2.setVisibility(LinearLayout.GONE);
+
+        battingTeam2 = (TextView) findViewById(R.id.battingTeam2);
+        currentScore2= (TextView) findViewById(R.id.currentScore2);
+        oversDone2 = (TextView) findViewById(R.id.oversDone2);
+        target = (TextView) findViewById(R.id.target);
         updateScore();
+
 
 
         newMatch = (Button) findViewById(R.id.refresh);
@@ -132,7 +166,10 @@ public class ScoreDetails extends AppCompatActivity {
                 }
             });
 
+
+
         }
+
     }
 
     private void nextActivity() {
@@ -155,18 +192,49 @@ public class ScoreDetails extends AppCompatActivity {
         teamTwo = preferences.getString("TeamTwo", null);
         tOvers = preferences.getInt("Overs", 0);
         tPlayers = preferences.getInt("Players", 0);
-        battingTeam.setText(teamOne);
-        currentScore.setText(String.valueOf(totalRuns)+"/"+String.valueOf(wickets));
-        oversDone.setText(String.valueOf(overs)+"("+String.valueOf(tOvers)+")");
+        battingTeam1.setText(teamOne);
+        currentScore1.setText(String.valueOf(totalRuns1)+"/"+String.valueOf(wickets1));
+        oversDone1.setText(String.valueOf(over_1)+"("+String.valueOf(tOvers)+")");
+        fTeam1.setText(teamOne+ " Bowling Details");
+        fTeam2.setText(teamTwo + " Bowling Details");
+
+        battingTeam2.setText(teamTwo);
+        currentScore2.setText(String.valueOf(totalRuns2)+"/"+String.valueOf(wickets2));
+        oversDone2.setText(String.valueOf(over_2)+"("+String.valueOf(tOvers)+")");
+        target.setText(String.valueOf((totalRuns1+1)));
+
+
     }
 
     public void viewScore(){
-        Cursor res = myDB.getAllData();
-        if(res.getCount()>0){
-            StringBuffer buffer = new StringBuffer();
-            while (res.moveToNext()){
+        System.out.println("33333333333333333333333333333333333333 "+ players.get(0));
+        try{
+            Cursor res = myDB.getAllData();
+            if(res.getCount()>0){
+                System.out.println("4444444444444444444444444444444444 "+ players.get(0));
+                res.moveToFirst();
 
             }
+
+            do {
+                String player_name = res.getString(1);
+                System.out.println("222222222222222222222222player name "+ player_name);
+
+            }while(res.moveToNext());
+
+            System.out.println("2222222222222222222222222 "+ players.get(0));
+            System.out.println("2222222222222222222222222 "+ players.toString());
+
+            recyclerViewBatting1 = (RecyclerView) findViewById(R.id.batting1);
+            recyclerViewBatting1.setHasFixedSize(true);
+            layoutManagerBatting1 = new LinearLayoutManager(this);
+            recyclerViewBatting1.setLayoutManager(layoutManagerBatting1);
+            mAdapterBatting11 = new MyAdapterTeam1(players);
+            recyclerViewBatting1.setAdapter(mAdapterBatting11);
+
+        }catch (Exception e){
+
         }
+
     }
 }

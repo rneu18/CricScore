@@ -129,16 +129,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select PLAYER_NAME from "+BATTING_1, null);
+        Cursor res = db.rawQuery("Select PLAYER_NAME from "+BATTING_1, new String[]{});
         return res;
 
     }
 
-//    public void clearTables() {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        db.execSQL("delete from " + BATTING_1);
-//        db.execSQL("delete from " + FEILDING_1);
-//        db.execSQL("delete from " + BATTING_2);
-//        db.execSQL("delete from " + FEILDING_2);
-//    }
+
+
+    public void clearTables() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("delete from " + BATTING_1);
+        db.execSQL("delete from " + FEILDING_1);
+        db.execSQL("delete from " + BATTING_2);
+        db.execSQL("delete from " + FEILDING_2);
+    }
 }

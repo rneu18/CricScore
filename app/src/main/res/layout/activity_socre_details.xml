@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorMyBg"
+    android:background="@color/color1"
     tools:context=".ScoreDetails">
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
-        android:id="@+id/overs"
+        android:id="@+id/score_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -29,70 +32,67 @@
                 android:id="@+id/refresh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="right"
                 android:layout_gravity="center"
                 android:text="Start New"
                 android:textSize="12sp" />
 
 
         </LinearLayout>
-
-
-
-
         <LinearLayout
+            android:id="@+id/linear_batting1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:background="@color/colorPrimary">
 
-            <TextView
-                android:id="@+id/battingTeam"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Batting team"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+            <include
+                android:id="@+id/batting_first"
+                layout="@layout/batting1" />
 
-            <TextView
-                android:id="@+id/currentScore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="0/0"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/oversDone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="0(Total)"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linear_fielding1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginTop="10dp">
+
+            <include
+                android:id="@+id/fielding_first"
+                layout="@layout/fielding2"/>
 
         </LinearLayout>
-
         <LinearLayout
+            android:id="@+id/linear_batting2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:background="@color/colorPrimary">
+
+            <include
+                android:id="@+id/batting_second"
+                layout="@layout/batting2"/>
 
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linear_fielding2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginTop="10dp">
+
+            <include
+                android:id="@+id/fielding_second"
+                layout="@layout/fielding1"/>
+
+        </LinearLayout>
+
+
     </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
 
 </android.support.design.widget.CoordinatorLayout>
