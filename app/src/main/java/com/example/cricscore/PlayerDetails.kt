@@ -22,7 +22,7 @@ class EnterPlayer : AppCompatActivity() {
     lateinit var mAdapter2: RecyclerView.Adapter<*>
     lateinit var layoutManager2: RecyclerView.LayoutManager
     lateinit var submitBtn: Button
-    internal var totalPlayer: Int = 0
+    private var totalPlayer: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
