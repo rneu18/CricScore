@@ -4,5 +4,23 @@
     <string name="heading2">\@CricScore</string>
     <string name="start_score">Click To Start Scoring</string>
     <string name="footer">Built by: Rishikesh Neupane</string>
+    <string name="four">4</string>
+    <string name="six">6</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="dot">Dot</string>
+    <string name="wide">Wd</string>
+    <string name="wicket">W</string>
+    <string name="bye">B</string>
+    <string name="leg_bye">LB</string>
+    <string name="one_short">1</string>
+    <string name="two_short">2</string>
+    <string name="three_short">3</string>
+    <string name="ManKading">0</string>
+    <string name="bowled">Bowled</string>
+    <string name="c_b">C&amp;B</string>
+    <string name="run_out">Run Out</string>
+    <string name="hit_wicket">Hit Wicket</string>
 
 </resources>
